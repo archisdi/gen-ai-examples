@@ -1,5 +1,5 @@
 from langchain_mcp_adapters.client import MultiServerMCPClient
-from langgraph.prebuilt import create_react_agent
+from langchain.agents import create_agent
 from langchain_ollama import ChatOllama
 
 # Initialize the LLM using local Ollama
@@ -22,7 +22,7 @@ async def main():
     print(f"Discovered {len(tools)} tools: {[t.name for t in tools]}\n")
 
     # Create a ReAct agent
-    agent = create_react_agent(llm, tools)
+    agent = create_agent(llm, tools)
 
     # Example queries
     queries = [
